@@ -15,7 +15,7 @@ build:
     - mvn --version
     - mvn clean install -DskipTests
     - mvn sonar:sonar
-    - docker build -t ms_zuul .
+    - docker build -t dockerregistry.hclets.com/ms_zuul:latest .
 
   post_ci:
     - ls -a
