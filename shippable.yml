@@ -10,10 +10,10 @@ build:
   ci:
     - mvn clean install -DskipTests
     - mvn sonar:sonar
-    - docker build -t hrishi/ms_zuul:latest .
+    - docker build -t hrishi/ms_zuul-server:latest .
 
   post_ci:
-    - docker push hrishi/ms_zuul:latest
+    - docker push hrishi/ms_zuul-server:latest
 
 integrations:
   hub:
