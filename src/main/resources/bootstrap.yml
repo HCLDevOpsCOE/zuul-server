@@ -8,4 +8,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://54.70.247.232:8761/eureka/
+      defaultZone: http://54.70.136.53:8761/eureka/
