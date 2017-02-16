@@ -3,10 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>microservice-demo-zuul-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 	<groupId>com.ms-example</groupId>
-
+	<artifactId>zuul</artifactId>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -18,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Brixton.RELEASE</spring-cloud.version>
+		<docker.image.prefix>hrishike</docker.image.prefix>
 	</properties>
 
 	<dependencyManagement>
@@ -39,6 +39,23 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.2.3</version>
+				<configuration>
+					<baseImage>ewolff/docker-java</baseImage>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<cmd>/usr/bin/java -Xmx400m -Xms400m -jar ${project.build.finalName}.jar</cmd>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
