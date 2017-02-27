@@ -12,4 +12,3 @@ logging:
     ROOT: INFO
     org.springframework.web: DEBUG
 
-  
