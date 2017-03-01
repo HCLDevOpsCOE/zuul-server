@@ -47,6 +47,7 @@
 					<baseImage>ewolff/docker-java</baseImage>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<cmd>/usr/bin/java -Xmx400m -Xms400m -jar ${project.build.finalName}.jar</cmd>
+					<entryPoint>/usr/bin/java -Xmx400m -Xms400m -jar ${project.build.finalName}.jar</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -71,9 +72,7 @@
             </activation>
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                  http://13.76.243.188:9000/
-                </sonar.host.url>
+                <sonar.host.url>http://sonar55.demos.hclets.com</sonar.host.url>
             </properties>
         </profile>
      </profiles>
