@@ -24,11 +24,10 @@ fi
 if [ "$RUNNING" == "true" ]; then
   echo "$CONTAINER is running"
   docker stop zuul
-  docker rm zuul
+  docker rm -f zuul
 fi
-
 
 if [ "$RUNNING" == "false" ]; then
   echo "CRITICAL - $CONTAINER is not running."
-  docker rm zuul
+  docker rm -f zuul
 fi
