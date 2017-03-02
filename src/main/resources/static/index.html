@@ -1,197 +1,57 @@
 <!DOCTYPE html>
+<html>
+<head>
+<title>Order Processing</title>
 
-<html lang="en">
-<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Welcome to Hallmark</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<style>
-.navbar-inverse {
-    background-image: linear-gradient(#04519b, #044687 60%, #033769) !important;
-	border-bottom: 1px solid #022241;
-	background-repeat: no-repeat;
-    background-color:#033c73 !important;
-	 
-    }
-	.navbar-inverse .navbar-brand{
-	color:#fff;
-	}
-	.navbar-inverse .navbar-nav > li > a{
-	color:#fff;
-	}
-  #productsCart{
-    padding-top:20px;
-  }
-	.badge-notify{
-    background:red;
-    position:relative;
-    top: -20px;
-    right: 10px;
-  }
-  .my-cart-icon-affix {
-    position: fixed;
-    z-index: 999;
-  }
-	
-</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
 <body>
-  <form method="post" action="./" id="ctl01">
-    <script src="Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
-    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
-	<nav class="navbar navbar-inverse navbar-fixed-top ">
-      <div class="container">
-        <div class="navbar-header">
-          
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="index.html" id="home" title="Home Page">Home</a></li>
-          <li><a href="/customer/list.html" title="View / Add / Delete Customers">Customers</a></li>
-          <li><a href="/catalog/list.html" title="View / Add / Delete Items">Catalog</a></li>
-          <li><a href="/catalog/searchForm.html" title="Search Catalog Items">Search</a></li>
-        </ul>
-		    <ul class="nav navbar-nav navbar-right">
-          <li><a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
-          </li>
-          <li><a href="/order/" title="Create Order"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container" style="margin-top:10%">
-		<h1 style="font-weight:500;color:#317eac">Welcome.</h1>
-        <h2 style="color:#317eac">Welcome to our site!!! We offer the best deals in electronic goods.</h2>
-        <p class="lead">You can order 
-                any of our items today. Each item listing has detailed 
-                information to help you choose the right one.</p>
-
+	<h1>Order Processing</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/customer/list.html">Customer</a>
+			</div>
+			<div class="col-md-4">List / add / remove customers</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/catalog/list.html">Catalog</a>
+			</div>
+			<div class="col-md-4">List / add / remove items</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/catalog/searchForm.html">Catalog</a>
+			</div>
+			<div class="col-md-4">Search Items</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/order/">Order</a>
+			</div>
+			<div class="col-md-4">Create an order</div>
+		</div>
+		<div class="row">
+		</div>
+		<div class="row">
+			<div class="col-md-4">Service discovery</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/" onclick="javascript:event.target.port=8761">Eureka (Docker Compose / Docker Machine)</a>
+			</div>
+			<div class="col-md-4">Service discovery</div>
+		</div>
 	</div>
-    <div class="modal fade" id="loginModal" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h1 class="text-center">Login</h1>
-          </div>
-          <div class="modal-body">
-            <form class="form col-md-12 center-block">
-              <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control input-lg" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <div class="col-md-12">
-              <center>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </center>
-            </div>  
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="modal fade" id="registerModal" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h1 class="text-center">Add Customer</h1>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal">
-              <fieldset>
-              <!-- Sign Up Form -->
-			  <div class="control-group">
-                <label class="control-label" for="userid">Name:</label>
-                <div class="controls">
-                  <input id="userid" name="userid" class="form-control" type="text" placeholder="Joe Daniel" class="input-large" required="">
-                </div>
-              </div>
-			  <div class="control-group">
-                <label class="control-label" for="firstName">First Name:</label>
-                <div class="controls">
-                  <input id="firstName" name="firstName" class="form-control" type="text" placeholder="Joe" class="input-large" required="">
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="Email">Email:</label>
-                <div class="controls">
-                  <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeDaniel@gmail.com" class="input-large" required="">
-                </div>
-              </div>
-			  <div class="control-group">
-                <label class="control-label" for="street">Street:</label>
-                <div class="controls">
-                  <input id="street" name="street" class="form-control" type="text" placeholder="MidWay Street" class="input-large" required="">
-                </div>
-              </div>
-			  <div class="control-group">
-                <label class="control-label" for="city">City:</label>
-                <div class="controls">
-                  <input id="city" name="city" class="form-control" type="text" placeholder="NJ" class="input-large" required="">
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="confirmsignup"></label>
-                <div class="controls">
-                  <button class="btn btn-primary btn-lg btn-block">Register / Add Customer</button>
-                </div>
-              </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <center><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button></center>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="customersModal" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h1 class="text-center">Manage Customers</h1>
-          </div>
-          <div class="modal-body">
-            <h5 class="text-center">View / Remove Customers</h5>
-            <table class="table table-striped" id="tblGrid">
-              <thead id="tblHead">
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th class="text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>ABC</td>
-                  <td>abc@gmail.com</td>
-                  <td class="text-right"><button>Remove</button></td>
-                </tr>
-                <tr><td>BCD</td>
-                  <td>bcd@gmail.com</td>
-                  <td class="text-right"><button>Remove</button></td>
-                </tr>
-                <tr><td>CDE</td>
-                  <td>cde@gmail.com</td>
-                  <td class="text-right"><button>Remove</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <div class="col-md-12">
-              <center><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button></center>
-            </div>  
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
 </body>
 </html>
